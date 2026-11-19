@@ -1,0 +1,25 @@
+MODELO LÓGICO INICIAL (TABELAS PRELIMINARES)
+
+TABELA	ESTRUTURA LÓGICA (ATRIBUTOS E CHAVES)
+CLIENTE	CLIENTE (id_cliente, nome, cpf_cnpj, email, telefone, data_cadastro)
+VENDEDOR	VENDEDOR (id_vendedor, nome, email, telefone, data_contratacao)
+FORNECEDOR	FORNECEDOR (id_fornecedor, razao_social, nome_fantasia, cnpj, telefone, email)
+CATEGORIA	CATEGORIA (id_categoria, nome_categoria, descricao)
+PRODUTO	PRODUTO (id_produto, nome_produto, descricao, preco_unitario, quantidade_estoque, id_categoria, id_fornecedor)
+PEDIDO	PEDIDO (id_pedido [PK, data_pedido, valor_total, status_pedido, id_cliente[FK], id_vendedor [FK])
+ITEM_PEDIDO	ITEM_PEDIDO (id_item_pedido [PK], quantidade, preco_praticado, id_pedido[FK, id_produto [FK])
+PAGAMENTO	PAGAMENTO (id_pagamento, data_pagamento, valor_pago, forma_pagamento, status_pagamento, id_pedido)
+
+MODELO LÓGICO REVISADO
+
+Com base nas correções e validações do DER Conceitual, o Modelo Lógico foi revisado e consolidado. Abaixo apresenta-se a estrutura das 8 tabelas com suas respectivas Chaves Primárias [PK] e Chaves Estrangeiras [FK] devidamente mapeadas:
+
+TABELA	ESTRUTURA LÓGICA (ATRIBUTOS E CHAVES)
+CLIENTE	CLIENTE (id_cliente [PK], nome, cpf_cnpj, email, telefone, data_cadastro)
+VENDEDOR	VENDEDOR (id_vendedor [PK], nome, email, telefone, data_contratacao)
+FORNECEDOR	FORNECEDOR (id_fornecedor [PK], razao_social, nome_fantasia, cnpj, telefone, email)
+CATEGORIA	CATEGORIA (id_categoria [PK], nome_categoria, descricao)
+PRODUTO	PRODUTO (id_produto [PK], nome_produto, descricao, preco_unitario, quantidade_estoque, id_categoria [FK], id_fornecedor [FK])
+PEDIDO	PEDIDO (id_pedido [PK], data_pedido, valor_total, status_pedido, id_cliente [FK], id_vendedor [FK])
+ITEM_PEDIDO	ITEM_PEDIDO (id_item_pedido [PK], quantidade, preco_praticado, id_pedido [FK], id_produto [FK])
+PAGAMENTO	PAGAMENTO (id_pagamento [PK], data_pagamento, valor_pago, forma_pagamento, status_pagamento, id_pedido [FK])
