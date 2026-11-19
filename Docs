@@ -1,6 +1,7 @@
 MODELO LÓGICO INICIAL (TABELAS PRELIMINARES)
 
 TABELA	ESTRUTURA LÓGICA (ATRIBUTOS E CHAVES)
+
 CLIENTE	CLIENTE (id_cliente, nome, cpf_cnpj, email, telefone, data_cadastro)
 VENDEDOR	VENDEDOR (id_vendedor, nome, email, telefone, data_contratacao)
 FORNECEDOR	FORNECEDOR (id_fornecedor, razao_social, nome_fantasia, cnpj, telefone, email)
@@ -15,6 +16,7 @@ MODELO LÓGICO REVISADO
 Com base nas correções e validações do DER Conceitual, o Modelo Lógico foi revisado e consolidado. Abaixo apresenta-se a estrutura das 8 tabelas com suas respectivas Chaves Primárias [PK] e Chaves Estrangeiras [FK] devidamente mapeadas:
 
 TABELA	ESTRUTURA LÓGICA (ATRIBUTOS E CHAVES)
+
 CLIENTE	CLIENTE (id_cliente [PK], nome, cpf_cnpj, email, telefone, data_cadastro)
 VENDEDOR	VENDEDOR (id_vendedor [PK], nome, email, telefone, data_contratacao)
 FORNECEDOR	FORNECEDOR (id_fornecedor [PK], razao_social, nome_fantasia, cnpj, telefone, email)
@@ -28,6 +30,7 @@ PAGAMENTO	PAGAMENTO (id_pagamento [PK], data_pagamento, valor_pago, forma_pagame
 DICIONÁRIO DE DADOS COMPLETO
 
 O Dicionário de Dados documenta formalmente os metadados de cada atributo das 8 tabelas do sistema TechStore, especificando nome do campo, descrição do negócio, tipo de dado físico, obrigatoriedade e observações estruturais.
+
 Tabela: CLIENTE
 Nome do campo	Descrição	Tipo de dado	Obrigatório	Observações
 id_cliente	Identificador único do cliente.	INT	Sim	Chave Primária (PK), AUTO_INCREMENT
@@ -38,6 +41,7 @@ telefone	Telefone de contato com DDD.	VARCHAR (15)	Não	-
 data_cadastro	Data de registro do cliente.	DATE	Sim	Valor Padrão: CURRENT_DATE
 
 Tabela: VENDEDOR
+
 Nome do campo	Descrição	Tipo de dado	Obrigatório	Observações
 id_vendedor	Identificador único do vendedor.	INT	Sim	Chave Primária (PK), AUTO_INCREMENT
 nome	Nome completo do colaborador.	VARCHAR (100)	Sim	-
@@ -47,6 +51,7 @@ data_contratacao	Data de contratação do colaborador.	DATE	Sim	Valor Padrão: C
 
  
 Tabela: FORNECEDOR
+
 Nome do campo	Descrição	Tipo de dado	Obrigatório	Observações
 id_fornecedor	Identificador único do fornecedor.	INT	Sim	Chave Primária (PK), AUTO_INCREMENT
 razao_social	Razão social da empresa fornecedora.	VARCHAR (120)	Sim	-
@@ -56,12 +61,14 @@ telefone	Telefone comercial de contato.	VARCHAR (15)	Não	-
 email	E-mail comercial do fornecedor.	VARCHAR (100)	Não	-
 
 Tabela: CATEGORIA
+
 Nome do campo	Descrição	Tipo de dado	Obrigatório	Observações
 id_categoria	Identificador único da categoria.	INT	Sim	Chave Primária (PK), AUTO_INCREMENT
 nome_categoria	Nome do segmento de produtos.	VARCHAR (50)	Sim	Restrição UNIQUE (único)
 descricao	Descrição detalhada da categoria.	TEXT	Não	-
 
 Tabela: PRODUTO
+
 Nome do campo	Descrição	Tipo de dado	Obrigatório	Observações
 id_produto	Identificador único do produto.	INT	Sim	Chave Primária (PK), AUTO_INCREMENT
 nome_produto	Título comercial do produto.	VARCHAR (150)	Sim	-
@@ -73,6 +80,7 @@ id_fornecedor	Referência ao fornecedor de origem.	INT	Sim	FK -> FORNECEDOR(id_f
 
 
 Tabela: PEDIDO
+
 Nome do campo	Descrição	Tipo de dado	Obrigatório	Observações
 id_pedido	Identificador único do pedido.	INT	Sim	Chave Primária (PK), AUTO_INCREMENT
 data_pedido	Data e hora do registro da venda.	DATETIME	Sim	DEFAULT CURRENT_TIMESTAMP
@@ -82,6 +90,7 @@ id_cliente	Referência ao cliente comprador.	INT	Sim	FK -> CLIENTE(id_cliente)
 id_vendedor	Referência ao vendedor responsável.	INT	Sim	FK -> VENDEDOR(id_vendedor)
 
 Tabela: ITEM_PEDIDO
+
 Nome do campo	Descrição	Tipo de dado	Obrigatório	Observações
 id_item_pedido	Identificador único do item.	INT	Sim	Chave Primária (PK), AUTO_INCREMENT
 quantidade	Quantidade de unidades vendidas.	INT	Sim	Restrição CHECK (> 0)
@@ -91,6 +100,7 @@ id_produto	Referência ao produto vendido.	INT	Sim	FK -> PRODUTO(id_produto)
 
 
 Tabela: PAGAMENTO
+
 Nome do campo	Descrição	Tipo de dado	Obrigatório	Observações
 id_pagamento	Identificador único do pagamento.	INT	Sim	Chave Primária (PK), AUTO_INCREMENT
 data_pagamento	Data e hora do acerto financeiro.	DATETIME	Sim	DEFAULT CURRENT_TIMESTAMP
